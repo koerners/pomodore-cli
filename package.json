@@ -3,7 +3,7 @@
     "version": "0.2.2",
     "main": "./dist/index.js ",
     "bin": {
-        "t": "./dist/index.js"
+        "pomodore-cli": "./dist/index.js"
     },
     "scripts": {
         "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
