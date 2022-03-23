@@ -12,17 +12,10 @@ showWelcomeMessage();
 
 var toggl = new TogglClient({ apiToken: process.env.TOGGL_API_TOKEN });
 
-
-async function main() {
-  await startTimetracker(toggl);
-}
-
 process.stdin.resume();
 
 process.on("SIGINT", function () {
   stopAllTracking(toggl);
 });
 
-main()
-  .then((v) => console.log(v))
-  .catch((err) => console.error(err));
+startTimetracker(toggl);

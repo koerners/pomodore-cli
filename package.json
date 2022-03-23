@@ -1,5 +1,7 @@
 {
-    "main ": "./dist/ index.js ",
+    "name": "pomodore-cli",
+    "version": "0.1.0",
+    "main": ". / dist / index.js ",
     "bin": {
         "t": "./dist/index.js"
     },
