@@ -19,3 +19,5 @@ process.on("SIGINT", function () {
 });
 
 startTimetracker(toggl);
+
+ 

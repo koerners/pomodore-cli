@@ -6,6 +6,7 @@ import {
 } from "./toogl";
 const inquirer = require("inquirer");
 const cliProgress = require("cli-progress");
+const notifier = require("node-notifier");
 var chalk = require("chalk");
 var clear = require("clear");
 var figlet = require("figlet");
@@ -63,6 +64,13 @@ export const askClientToPauseTimeEntry = async (
   toggl: any,
   timeEntryId: string
 ) => {
+  // Object
+  notifier.notify({
+    title: "Break",
+    message: "It's time for a break!",
+    sound: true, // Case Sensitive string for location of sound file, or use one of macOS' native sounds (see below)
+  });
+
   inquirer
     .prompt([
       {
