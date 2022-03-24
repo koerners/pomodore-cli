@@ -49,7 +49,7 @@ const askClientForProject = async (projects: Project[], toggl: any) => {
         clear();
         console.log(
           chalk.blue(
-            figlet.textSync(answers.projects, { horizontalLayout: "full" })
+            figlet.textSync(answers.projects, { horizontalLayout: "fitted" })
           )
         );
         await startTimeEntry(toggl, projectId);
@@ -75,11 +75,7 @@ const showProgress = async (toggl: any, timeEntryId: string) => {
   await askClientToPauseTimeEntry(toggl, timeEntryId);
 };
 
-const askClientToPauseTimeEntry = async (
-  toggl: any,
-  timeEntryId: string
-) => {
-  // Object
+const askClientToPauseTimeEntry = async (toggl: any, timeEntryId: string) => {
   notifier.notify({
     title: "Break",
     message: "It's time for a break!",
@@ -111,7 +107,7 @@ const askClientToPauseTimeEntry = async (
 
 async function showBreakProgress(toggl: any) {
   console.log(
-    chalk.green(figlet.textSync("Pause!", { horizontalLayout: "full" }))
+    chalk.green(figlet.textSync("Pause!", { horizontalLayout: "fitted" }))
   );
 
   const bar2 = new cliProgress.SingleBar(
@@ -129,6 +125,13 @@ async function showBreakProgress(toggl: any) {
   }
   // stop the progress bar
   bar2.stop();
+
+  notifier.notify({
+    title: "Break is over!",
+    message: "It's time to start working again!",
+    sound: true, // Case Sensitive string for location of sound file, or use one of macOS' native sounds (see below)
+  });
+
   showWelcomeMessage();
   getClientProjects(toggl);
 }
@@ -136,7 +139,7 @@ async function showBreakProgress(toggl: any) {
 const showWelcomeMessage = () => {
   clear();
   console.log(
-    chalk.red(figlet.textSync("Timetracker", { horizontalLayout: "full" }))
+    chalk.red(figlet.textSync("Timetracker", { horizontalLayout: "fitted" }))
   );
 };
 
