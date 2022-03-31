@@ -2,7 +2,7 @@
 
 ## Setup
 1. `npm install -g pomodore-cli`
-2. Create an .env file in your home repository with the following content:
+2. Create an .env file in your home directory with the following content:
 
 ```
 TOGGL_API_TOKEN=""
